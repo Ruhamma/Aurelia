@@ -14,9 +14,10 @@ module.exports = {
         montserrat: ["Montserrat", "sans-serif"],
         oldStandardTT: ["Old Standard TT", "serif"],
         rouge: ["Rouge Script", "cursive"],
+        mathilga: ["Mathilga"],
+        felidae: ["Felidae"],
       },
     },
   },
   plugins: [],
 };
-

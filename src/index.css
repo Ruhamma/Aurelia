@@ -2,17 +2,118 @@
 @tailwind components;
 @tailwind utilities;
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,900;1,100;1,200;1,300;1,400;1,500&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Rouge+Script&display=swap");
-
+@font-face {
+  font-family: Mathilga;
+  src: url("./assets/fonts/mathilga-font-1678707073-0/mathilga-lgwxd.otf");
+}
+@font-face {
+  font-family: Felidae;
+  src: url("./assets/fonts/felidae/Felidae.ttf");
+}
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: #091018;
+  background-image: url("https://www.transparenttextures.com/patterns/dark-matter.png");
+  overflow-x: hidden;
+}
+hr {
+  border-color: #634713;
+}
+.gold {
+  background: radial-gradient(
+      ellipse farthest-corner at right bottom,
+      #fedb37 0%,
+      #fdb931 8%,
+      #9f7928 30%,
+      #8a6e2f 40%,
+      transparent 80%
+    ),
+    radial-gradient(
+      ellipse farthest-corner at left top,
+      #ffffac 0%,
+      #ffffac 8%,
+      #d1b464 25%,
+      #5d4a1f 62.5%,
+      #5d4a1f 100%
+    );
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.links {
+  position: relative;
+  color: white;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+.links ::before {
+  content: " ";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  border-radius: 4px;
+  background-color: white;
+  bottom: 0;
+  left: 0;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform 0.3s ease-in-out;
+}
+.links :hover::before {
+  transform-origin: left;
+  transform: scaleX(1);
+}
+.links1 {
+  position: relative;
+}
+.links1 ::before {
+  content: " ";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  border-radius: 4px;
+  background-color: #5d4a1f;
+  bottom: 0;
+  left: 0;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform 0.3s ease-in-out;
+}
+.links1 :hover::before {
+  transform-origin: left;
+  transform: scaleX(1);
+}
+.explore::after {
+  content: "Explore our menu";
+  left: -38.5rem;
+  top: -1.25rem;
+  position: relative;
+  z-index: -1;
+  font-weight: 100;
+  opacity: 0.5;
+  background: radial-gradient(
+      ellipse farthest-corner at right bottom,
+      #fedb37 0%,
+      #fdb931 8%,
+      #9f7928 30%,
+      #8a6e2f 40%,
+      transparent 80%
+    ),
+    radial-gradient(
+      ellipse farthest-corner at left top,
+      #ffffac 0%,
+      #ffffac 8%,
+      #d1b464 25%,
+      #5d4a1f 62.5%,
+      #5d4a1f 100%
+    );
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: "Rouge Script", "cursive";
+}
+
+/*About Page*/
+.aboutHero,.aboutCarousel {
+  background-image: url("../public/img/aboutHero.jpg");
+  background-position: bottom -700px left 0px;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
 }
