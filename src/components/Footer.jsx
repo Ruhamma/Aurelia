@@ -9,21 +9,22 @@ function Footer() {
       className="text-white grid  h-30vh p-5 leading-1.5 gap-0  py-10 px-10"
     >
       <div id="logo" className="text-8xl font-rouge gold">
-        A
+        <Link to="/">A</Link>
       </div>
       <div id="navigation" className="flex flex-col gap-2">
         <h2 className="text-xl pb-2 font-bold">Navigation</h2>
+
         <Link to="/about" className="opacity-80 block">
           About us
         </Link>
         <Link to="/menu" className="opacity-80 block">
           Menu
         </Link>
+        <Link to="/events" className="opacity-80 block">
+          Events
+        </Link>
         <Link to="/contact" className="opacity-80 block">
           Contact
-        </Link>
-        <Link to="/" className="opacity-80 block">
-          Home
         </Link>
       </div>
       <div id="Contacts" className="flex flex-col gap-2">
