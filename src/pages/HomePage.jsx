@@ -23,11 +23,11 @@ function HomePage() {
           <Link className="links" to="/menu">
             Menu
           </Link>
-          <Link className="links" to="/contact">
-            Contact
-          </Link>
           <Link className="links" to="/event">
             Event
+          </Link>
+          <Link className="links" to="/contact">
+            Contact
           </Link>
         </div>
       </section>

@@ -110,10 +110,169 @@ hr {
 }
 
 /*About Page*/
-.aboutHero,.aboutCarousel {
+.aboutHero,
+.aboutCarousel,
+#image {
   background-image: url("../public/img/aboutHero.jpg");
   background-position: bottom -700px left 0px;
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
+}
+#image {
+  background-image: url("../public/img/urban-gyllstrom-MaWMfm-HCqQ-unsplash1.jpg");
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+}
+.categoriesTitle::after {
+  content: "Categories";
+  position: relative;
+  top: -2.25rem;
+  left: -18.75rem;
+  z-index: -1;
+  font-weight: 100;
+  opacity: 0.5;
+  background: radial-gradient(
+      ellipse farthest-corner at right bottom,
+      #fedb37 0%,
+      #fdb931 8%,
+      #9f7928 30%,
+      #8a6e2f 40%,
+      transparent 80%
+    ),
+    radial-gradient(
+      ellipse farthest-corner at left top,
+      #ffffac 0%,
+      #ffffac 8%,
+      #d1b464 25%,
+      #5d4a1f 62.5%,
+      #5d4a1f 100%
+    );
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: "Rouge Script", "cursive";
+}
+.recommendationTitle::after {
+  content: "Recommendation";
+  position: relative;
+  top: -2.25rem;
+  left: -28.75rem;
+  z-index: -1;
+  font-weight: 100;
+  opacity: 0.5;
+  background: radial-gradient(
+      ellipse farthest-corner at right bottom,
+      #fedb37 0%,
+      #fdb931 8%,
+      #9f7928 30%,
+      #8a6e2f 40%,
+      transparent 80%
+    ),
+    radial-gradient(
+      ellipse farthest-corner at left top,
+      #ffffac 0%,
+      #ffffac 8%,
+      #d1b464 25%,
+      #5d4a1f 62.5%,
+      #5d4a1f 100%
+    );
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: "Rouge Script", "cursive";
+}
+.contactTitle::after {
+  content: "Contacts";
+  position: relative;
+  top: -1.25rem;
+  left: -14.75rem;
+  z-index: -1;
+  font-weight: 100;
+  opacity: 0.5;
+  background: radial-gradient(
+      ellipse farthest-corner at right bottom,
+      #fedb37 0%,
+      #fdb931 8%,
+      #9f7928 30%,
+      #8a6e2f 40%,
+      transparent 80%
+    ),
+    radial-gradient(
+      ellipse farthest-corner at left top,
+      #ffffac 0%,
+      #ffffac 8%,
+      #d1b464 25%,
+      #5d4a1f 62.5%,
+      #5d4a1f 100%
+    );
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: "Rouge Script", "cursive";
+}
+#first_text {
+  animation: animate5 1s ease-in;
+}
+@keyframes animate5 {
+  from {
+    transform: translateX(-600px);
+    opacity: 0.3;
+
+    filter: blur(8px);
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+#spin img {
+  border: 2px solid goldenrod;
+  -webkit-box-reflect: below 0.125rem
+    linear-gradient(transparent, transparent, rgba(255, 255, 255, 0.282));
+}
+.container {
+  animation: animate4 1s ease-in;
+  perspective: 1000px;
+}
+@keyframes animate4 {
+  from {
+    transform: translateX(600px);
+    opacity: 0.3;
+    filter: blur(8px);
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+#spin {
+  width: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  animation: rotate 90s linear infinite;
+}
+@keyframes rotate {
+  from {
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+#spin img:nth-child(1) {
+  transform: rotateY(60deg) translateZ(300px);
+}
+#spin img:nth-child(2) {
+  transform: rotateY(120deg) translateZ(300px);
+}
+#spin img:nth-child(3) {
+  transform: rotateY(180deg) translateZ(300px);
+}
+#spin img:nth-child(4) {
+  transform: rotateY(240deg) translateZ(300px);
+}
+#spin img:nth-child(5) {
+  transform: rotateY(300deg) translateZ(300px);
+}
+#spin img:nth-child(6) {
+  transform: rotateY(360deg) translateZ(300px);
 }
