@@ -16,7 +16,7 @@ function Nav() {
         <Link className="links1 gold" to="/contact">
           Contact
         </Link>
-        <Link className="links1 gold" to="/event">
+        <Link className="links1 gold" to="/events">
           Event
         </Link>
       </div>

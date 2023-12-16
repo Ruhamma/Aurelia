@@ -1,10 +1,14 @@
 import React from "react";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
-
+import { motion } from "framer-motion";
 function ContactPage() {
   return (
-    <div className="text-white">
+    <motion.div 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="text-white">
       <Nav />
       <section className="first mt-[20px] h-[70vh] flex flex-row items-center justify-evenly gap-[12.875rem] ">
         <div id="first__text" className="w-[500px] p-[10px] ">
@@ -150,8 +154,8 @@ function ContactPage() {
       <hr className="mx-12" />
 
       <Footer />
-    </div>
+    </motion.div>
   );
 }
 
-export default ContactPage;
+export default (ContactPage);

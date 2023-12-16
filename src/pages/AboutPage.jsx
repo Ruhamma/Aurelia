@@ -1,9 +1,15 @@
 import React from "react";
 import Footer from "../components/Footer";
 import Nav from "../components/Nav";
+import {motion} from "framer-motion"
 function AboutPage() {
   return (
-    <div className="text-white">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="text-white"
+    >
       <Nav />
       <section className="absolute z-20 inset-0 w-full h-[80vh] aboutHero text-white font-mathilga flex flex-col items-center justify-center">
         <h1 className="who text-[7rem] gold py-4 pb-[0.8rem] z-20">
@@ -364,10 +370,10 @@ function AboutPage() {
           </div>
         </div>
       </section>
-      <hr className="mx-12"/>
+      <hr className="mx-12" />
       <Footer />
-    </div>
+    </motion.div>
   );
 }
 
-export default AboutPage;
+export default (AboutPage);

@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
-
+import { motion } from "framer-motion";
 function EventPage() {
+ const [width, setWidth] = useState(0);
+ const carousel = useRef();
+ useEffect(() => {
+   setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth + 50);
+ },[]);
   return (
-    <div>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <Nav />
       <section className="absolute z-20 inset-0 w-full h-[80vh] text-white font-mathilga flex flex-col items-center justify-center">
         <h1 className="who text-[7rem]  gold py-4 pb-[0.125rem] z-20">
@@ -63,15 +72,15 @@ function EventPage() {
               loop
               width="600"
               height="500"
-              className="object-fill "
+              className="object-fill h-[500px] "
             >
               <source src="./img/production ID_4253350.mp4" type="video/mp4" />
               The browser doesn't support this videos format.
             </video>
           </div>
         </div>
-        <div id="main1__two" className="p-[1.25rem] pb-[10rem]">
-          <div className="titlePointer flex justify-between pb-2">
+        <div id="main1__two" className="p-[1.25rem] pb-[10rem] pt-[5rem]">
+          <div className="titlePointer flex justify-between mb-10 ">
             <h2 className="text-5xl font-bold">Future events</h2>
             <p className="gold font-rouge text-4xl">
               <span id="left" className="cursor-pointer text-[2.875rem]">
@@ -84,50 +93,63 @@ function EventPage() {
               </span>
             </p>
           </div>
-          <div id="main1__two__images" className="w-[200%] flex gap-[2.5rem]">
-            <div className="box w-[550px] h-[400px] bg-green-950 flex flex-col justify-end p-[1.25rem]">
-              <p className="text-[1.775rem]">Vegetable triumph</p>
-              <p className="text-gray-500 font-oldStandardTT text-xl">
-                On these days we specify,only vegetable based meals are served
-                in our restaurant.Don't miss thes healthy and delicious dishes.
-              </p>
-            </div>
-            <div className="box w-[550px] h-[250px] bg-green-950 flex flex-col justify-end p-[1.25rem]">
-              <p className="text-[1.775rem]">Smoked brisket with apple</p>
-              <p className="text-gray-500 font-oldStandardTT text-xl">
-                This dish,which is the chef's special reciepe is so beautiful
-                and unique that it will make you eat your fingers.Be sure to try
-                it!
-              </p>
-            </div>
-            <div className="box w-[550px] h-[400px] bg-green-950 flex flex-col justify-end p-[1.25rem]">
-              <p className="text-[1.775rem]">Happy Hour 50% off</p>
-              <p className="text-gray-500 font-oldStandardTT text-xl">
-                Discount is applied for any meal or beverages that are ordered
-                at our special restaurant today don't miss this opportunity.
-              </p>
-            </div>
-            <div className="box w-[550px] h-[250px] bg-green-950 flex flex-col justify-end p-[1.25rem]">
-              <p className="text-[1.775rem]">Acoustic night</p>
-              <p className="text-gray-500 font-oldStandardTT text-xl">
-                Enjoy Acoustic night with friends and .EAT-DRINK-SING!
-              </p>
-            </div>
-            <div className="box w-[550px] h-[400px] bg-green-950 flex flex-col justify-end p-[1.25rem]">
-              <p className="text-[1.775rem]">Special wine</p>
-              <p className="text-gray-500 font-oldStandardTT text-xl">
-                Our special wines are prepared and we keep them for you over the
-                years until they have a unique taste.
-              </p>
-            </div>
-            <div className="box w-[550px] h-[250px] bg-green-950 flex flex-col justify-end p-[1.25rem]">
-              <p className="text-[1.775rem]">Happy Hour 50% off</p>
-              <p className="text-gray-500 font-oldStandardTT text-xl">
-                Discount is applied for any meal or beverages that are ordered
-                at our special restaurant today don't miss this opportunity.
-              </p>
-            </div>
-          </div>
+          <motion.div
+            id="carousel"
+            className="cursor-grab"
+            ref={carousel}
+            whileTap={{ cursor: "grabbing" }}
+          >
+            <motion.div
+              className="w-[200%] flex gap-[2.5rem]"
+              drag="x"
+              dragConstraints={{ right: 0, left: -width }}
+              id="inner-carousel"
+            >
+              <motion.div className="box w-[550px] h-[400px] bg-green-950 flex flex-col justify-end p-[1.25rem]">
+                <p className="text-[1.775rem]">Vegetable triumph</p>
+                <p className="text-gray-500 font-oldStandardTT text-xl">
+                  On these days we specify,only vegetable based meals are served
+                  in our restaurant.Don't miss thes healthy and delicious
+                  dishes.
+                </p>
+              </motion.div>
+              <motion.div className="box w-[550px] h-[250px] bg-green-950 flex flex-col justify-end p-[1.25rem]">
+                <p className="text-[1.775rem]">Smoked brisket with apple</p>
+                <p className="text-gray-500 font-oldStandardTT text-xl">
+                  This dish,which is the chef's special reciepe is so beautiful
+                  and unique that it will make you eat your fingers.Be sure to
+                  try it!
+                </p>
+              </motion.div>
+              <motion.div className="box w-[550px] h-[400px] bg-green-950 flex flex-col justify-end p-[1.25rem]">
+                <p className="text-[1.775rem]">Happy Hour 50% off</p>
+                <p className="text-gray-500 font-oldStandardTT text-xl">
+                  Discount is applied for any meal or beverages that are ordered
+                  at our special restaurant today don't miss this opportunity.
+                </p>
+              </motion.div>
+              <motion.div className="box w-[550px] h-[250px] bg-green-950 flex flex-col justify-end p-[1.25rem]">
+                <p className="text-[1.775rem]">Acoustic night</p>
+                <p className="text-gray-500 font-oldStandardTT text-xl">
+                  Enjoy Acoustic night with friends and .EAT-DRINK-SING!
+                </p>
+              </motion.div>
+              <motion.div className="box w-[550px] h-[400px] bg-green-950 flex flex-col justify-end p-[1.25rem]">
+                <p className="text-[1.775rem]">Special wine</p>
+                <p className="text-gray-500 font-oldStandardTT text-xl">
+                  Our special wines are prepared and we keep them for you over
+                  the years until they have a unique taste.
+                </p>
+              </motion.div>
+              <motion.div className="box w-[550px] h-[250px] bg-green-950 flex flex-col justify-end p-[1.25rem]">
+                <p className="text-[1.775rem]">Happy Hour 50% off</p>
+                <p className="text-gray-500 font-oldStandardTT text-xl">
+                  Discount is applied for any meal or beverages that are ordered
+                  at our special restaurant today don't miss this opportunity.
+                </p>
+              </motion.div>
+            </motion.div>
+          </motion.div>
         </div>
         <div
           id="main1__three"
@@ -172,7 +194,7 @@ function EventPage() {
       </section>
       <hr className="mx-12" />
       <Footer />
-    </div>
+    </motion.div>
   );
 }
 

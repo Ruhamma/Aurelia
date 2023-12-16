@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
-
+import { motion, useTransform, useScroll } from "framer-motion";
+import { useRef,useEffect } from "react";
 function HomePage() {
+  const[width,setWidth]=useState(0);
+  const carousel=useRef();
+  useEffect(()=>{
+    setWidth(carousel.current.scrollWidth-carousel.current.offsetWidth+50)
+  },[])
   return (
-    <div className="font-oldStandardTT">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="font-oldStandardTT"
+    >
       <section className="homeNav  flex justify-between items-center text-white  px-10 py-5">
         <div className="flex flex-col items-center justify-center pl-5">
           <p className="text-6xl font-rouge gold">Aurelia</p>
@@ -23,7 +34,7 @@ function HomePage() {
           <Link className="links" to="/menu">
             Menu
           </Link>
-          <Link className="links" to="/event">
+          <Link className="links" to="/events">
             Event
           </Link>
           <Link className="links" to="/contact">
@@ -37,11 +48,11 @@ function HomePage() {
           alt=""
           className=" absolute top-0 right-0 h-[700px] w-[50%] object-cover rounded-bl-[40%] -z-20"
         />
-        <h1 className="font-felidae font-thin text-[125px] leading-[10rem] ">
+        <motion.h1 className="font-felidae font-thin text-[125px] leading-[10rem] ">
           YOUR OPULENT <span className="ml-[15rem]">RESTAURANT</span>
           <br />
           <span className="ml-20"> AURELIA</span>
-        </h1>
+        </motion.h1>
       </section>
       <section
         id="aOne"
@@ -106,59 +117,77 @@ function HomePage() {
         <Link to="/menu" className="gold font-rouge text-[3rem]">
           Explore &gt;
         </Link>
-        <div
-          id="menuSlides"
-          className="flex justify-between py-[8rem] w-[160%]"
+        <motion.div
+          id="carousel"
+          className="cursor-grab  overflow-hidden"
+          ref={carousel}
+          whileTap={{cursor:"grabbing"}}
         >
-          <div className="w-[300px]" id="so">
-            <p className="text-3xl gold">Soup</p>
-            <img
-              src="./img/soup/0.jpg"
-              alt=""
-              className="w-[300px] h-[500px] object-cover object-center"
-            />
-          </div>
-          <div className="w-[300px] text-right" id="ma">
-            <img
-              src="./img/soup/1.jpg"
-              alt=""
-              className="w-[300px] h-[500px] object-cover object-center"
-            />
-            <p className="text-3xl gold">Main</p>
-          </div>
-          <div className="w-[300px] " id="des">
-            <p className="text-3xl gold">Salads</p>
-            <img
-              src="./img/soup/2.jpg"
-              alt=""
-              className="w-[300px] h-[500px] object-cover object-center"
-            />
-          </div>
-          <div className="w-[300px] text-right" id="fis">
-            <img
-              src="./img/soup/3.jpg"
-              alt=""
-              className="w-[300px] h-[500px] object-cover object-center"
-            />
-            <p className="text-3xl gold">Fish</p>
-          </div>
-          <div className="w-[300px] " id="dr">
-            <p className="text-3xl gold">Drinks</p>
-            <img
-              src="./img/soup/4.jpg"
-              alt=""
-              className="w-[300px] h-[500px] object-cover object-center"
-            />
-          </div>
-          <div className="w-[300px] text-right" id="sm">
-            <img
-              src="./img/soup/5.jpg"
-              alt=""
-              className="w-[300px] h-[500px] object-cover object-center"
-            />
-            <p className="text-3xl gold">Smth</p>
-          </div>
-        </div>
+          <motion.div
+            drag="x"
+            dragConstraints={{ right: 0,left:-width}}
+            id="inner-carousel"
+            className="flex justify-between py-[8rem] w-[160%] "
+          >
+            <motion.div className="w-[300px] pointer-events-none">
+              <p className="text-3xl gold">Soup</p>
+              <img
+                src="./img/soup/0.jpg"
+                alt=""
+                className="w-[300px] h-[500px] object-cover object-center"
+              />
+            </motion.div>
+            <motion.div
+              className="w-[300px] pointer-events-none text-right"
+              id="ma"
+            >
+              <img
+                src="./img/soup/1.jpg"
+                alt=""
+                className="w-[300px] h-[500px] object-cover object-center"
+              />
+              <p className="text-3xl gold">Main</p>
+            </motion.div>
+            <motion.div className="w-[300px] pointer-events-none" id="des">
+              <p className="text-3xl gold">Salads</p>
+              <img
+                src="./img/soup/2.jpg"
+                alt=""
+                className="w-[300px] h-[500px] object-cover object-center"
+              />
+            </motion.div>
+            <motion.div
+              className="w-[300px] text-right pointer-events-none"
+              id="fis"
+            >
+              <img
+                src="./img/soup/3.jpg"
+                alt=""
+                className="w-[300px] h-[500px] object-cover object-center"
+              />
+              <p className="text-3xl gold">Fish</p>
+            </motion.div>
+            <motion.div className="w-[300px] pointer-events-none" id="dr">
+              <p className="text-3xl gold">Drinks</p>
+              <img
+                src="./img/soup/4.jpg"
+                alt=""
+                className="w-[300px] h-[500px] object-cover object-center"
+              />
+            </motion.div>
+            <motion.div
+              className="w-[300px] text-right pointer-events-none"
+              id="sm"
+            >
+              <img
+                src="./img/soup/5.jpg"
+                alt=""
+                className="w-[300px] h-[500px] object-cover object-center"
+              />
+              <p className="text-3xl gold">Smth</p>
+            </motion.div>
+          </motion.div>
+        </motion.div>
       </section>
       <section className="relative ">
         <div className="hide text-lg text-white w-[700px] text-center absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 z-20 leading-10">
@@ -187,7 +216,7 @@ function HomePage() {
       </section>
       <hr />
       <Footer />
-    </div>
+    </motion.div>
   );
 }
 

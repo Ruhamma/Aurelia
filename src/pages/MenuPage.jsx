@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
-
+import { motion } from "framer-motion";
 function MenuPage() {
   const [choice, setChoice] = useState("soup");
   // const soups=["./img/soup/0.jpg",]
@@ -30,7 +30,12 @@ function MenuPage() {
     (_, index) => `url(./img/desserts/${index}.jpg)`
   );
   return (
-    <div className="text-white">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="text-white"
+    >
       <Nav />
       <section
         id="firstPage"
@@ -450,7 +455,7 @@ function MenuPage() {
       </div>
       <hr className="mx-12" />
       <Footer />
-    </div>
+    </motion.div>
   );
 }
 
